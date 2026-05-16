@@ -1,0 +1,68 @@
+AUTOGRAD / BACKPROP
+
+Neural network:
+y_hat = f(x, w)
+
+Loss:
+L = loss(y_hat, y)
+
+Goal:
+minimize loss by changing weights.
+
+Gradient:
+tells how much output changes if input changes slightly.
+
+Backpropagation:
+efficient algorithm to compute dLoss/dWeight for all weights.
+
+Uses chain rule:
+dL/da = (dL/db)(db/da)
+
+Computation graph:
+each mathematical operation becomes node.
+
+Example:
+c = a + b
+L = c * f
+
+Forward:
+a=2, b=3, f=4
+c=5
+L=20
+
+Backward:
+dL/dL = 1
+dL/dc = f = 4
+dc/da = 1
+dc/db = 1
+dL/da = 4
+dL/db = 4
+dL/df = c = 5
+
+Local derivative rules:
+
+Addition:
+z = x + y
+dz/dx = 1
+dz/dy = 1
+
+Multiplication:
+z = x * y
+dz/dx = y
+dz/dy = x
+
+Autograd:
+automatically builds computation graph during forward pass
+stores intermediate values
+runs backward pass
+computes gradients automatically
+
+Weight update:
+w = w - learning_rate * gradient
+
+Training loop:
+forward pass
+compute loss
+backward pass
+update weights
+repeat
